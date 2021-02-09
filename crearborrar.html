@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba con Javascript</title>
+
+    <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        document.querySelector('#crear').onclick = function() {
+                const newElem = document.createElement("div");
+                newElem.id = "nuevoElemento";
+                newElem.className = "bloque";
+                newElem.style = "background-color: red; width:300px; boder: 1px solid white;"
+                newElem.innerHTML = "<h1>Hello, World</h1>";
+                const body = document.querySelector("body");
+                body.appendChild(newElem);
+            }
+    
+
+        document.querySelector('#borrar').onclick = function() {
+                const body = document.querySelector("body");
+                body.removeChild(body.lastChild);
+            }
+        
+
+
+    });
+
+        
+
+
+
+
+    </script>
+</head>
+<body>
+
+    <button id="crear">Crear</button> <button id="borrar">Borrar</button>
+    
+</body>
+</html>

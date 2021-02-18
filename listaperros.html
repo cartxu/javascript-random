@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista perretes</title>
+</head>
+<body>
+
+
+
+<script type="text/javascript">
+const firstDogImage = 'https://images.dog.ceo/breeds/schipperke/n02104365_8156.jpg';
+const firstDogName = 'Dina';
+
+const secondDogImage = 'https://images.dog.ceo/breeds/collie-border/n02106166_355.jpg';
+const secondDogName = 'Luna';
+
+const thirdDogImage = 'https://images.dog.ceo/breeds/affenpinscher/n02110627_7065.jpg';
+const thirdDogName = 'Lana';
+
+document.querySelector('body').innerHTML = `<ul> 
+    <li> <img src="${firstDogImage}"> 
+        <br> Name: ${firstDogName} </li>
+    <li> <img src="${secondDogImage}">" 
+        <br> Name: ${secondDogName} </li>
+    <li> <img src="${thirdDogImage}">" 
+        <br> Name: ${thirdDogName} </li>
+    </ul>`;
+
+
+</script>
+</body>
+</html>

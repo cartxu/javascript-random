@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases</title>
+    <style>
+
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: 24px;
+            text-align: center;
+        }
+
+
+        .success {
+            background-color: rgb(142, 212, 162);
+            border: 3px solid rgb(45, 99, 61) ;
+            color: rgb(45, 99, 61);
+        }
+
+        .warning {
+            background-color: rgb(246, 248, 221);
+            border: 3px solid rgb(221, 207, 13);
+            color: rgb(221, 207, 13);
+        }
+
+        .error {
+            background-color: rgb(238, 194, 194);
+            border: 3px solid rgb(85, 12, 12) ;
+            color: rgb(85, 12, 12);
+        }
+
+        div {
+            margin: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="divMensaje">
+        <h1>NOTIFICACIÓN</h1>
+        <p>Mensaje por defecto</p>
+    </div>
+    <button id="error">Error</button> <button id="warning">Warning</button> <button id="success">Success</button>
+
+    <script type="text/javascript">
+    'use strict';
+
+    document.querySelector('#error').onclick = () => {
+        document.querySelector('#divMensaje').classList.remove('warning', 'success');
+        document.querySelector('#divMensaje').classList.add('error');
+        document.querySelector('h1').innerHTML = "ERROR";
+        document.querySelector('p').innerHTML = "¡Ha surgido un error!";
+    }
+
+    document.querySelector('#success').onclick = () => {
+        document.querySelector('#divMensaje').classList.remove('error', 'warning');
+        document.querySelector('#divMensaje').classList.add('success');
+        document.querySelector('h1').innerHTML = "CORRECTO";
+        document.querySelector('p').innerHTML = "Los datos son correctos.";
+    }
+    
+    document.querySelector('#warning').onclick = () => {
+        document.querySelector('#divMensaje').classList.remove('error', 'success');
+        document.querySelector('#divMensaje').classList.add('warning');
+        document.querySelector('h1').innerHTML = "AVISO";
+        document.querySelector('p').innerHTML = "Tenga cuidado.";
+    }
+
+
+    
+    </script>
+</body>
+</html>

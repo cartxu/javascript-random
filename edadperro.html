@@ -7,7 +7,7 @@
     <title>Calculadora Edad Perruna</title>
     <style>
         body {
-            background-color: rgb(197, 207, 172);
+            background-color: rgba(242, 248, 160, 0.521);
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             font-size: 20px;
             text-align: center;
@@ -15,13 +15,28 @@
         }
 
         input {
-            background-color: rgb(197, 207, 172);
-            width: 50px;
+            background-color: rgba(226, 235, 206, 0.521);
+            border-radius: 5px;
+            width: 30px;
             color: rgb(55, 75, 5);
             outline: none;
             text-align: center;
             border: none;
-            border-bottom: 2px dashed rgb(55, 75, 5);
+            border: 2px solid rgb(119, 128, 99);
+        }
+
+        #respuesta {
+            font-style: italic;
+            margin: 20px;
+            width: 600;
+            color:rgb(128, 156, 68);
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 50%;
+            margin: 20px;
         }
 
     </style>
@@ -29,12 +44,14 @@
 </head>
 <body>
 
-    <h1>¡Bienvenido a tu calculadora de edad perruna!</h1>
+    <h2>Calculadora de edad perruna</h2>
 
     <form id="edadForm"> 
         <label for="edad">Introduce la edad de tu perrete:</label>
-        <input type="number" id="edadPerruna">
+        <input type="text" id="edadPerruna">
     </form>
+
+    <p id="respuesta"></p>
     
     <script type="text/javascript" src="edadperro.js"></script>
 </body>

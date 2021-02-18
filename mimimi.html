@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIMIMI Translator</title>
+    <style>
+        body {
+            background-color: rgb(230, 176, 198);
+            color:rgb(102, 14, 49);
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+        textarea {
+            background-color: #ffffff20;
+            border: none;
+            outline: none;
+            border: 5px double rgb(102, 14, 49);
+            border-radius: 10px;
+            resize: none;
+            text-align: center;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        input {
+            padding: 10px 20px;
+            background-color:rgb(102, 14, 49);
+            color:rgb(230, 176, 198);
+            border: none;
+            outline: none;
+            border-radius: 5px;
+
+        }
+        input:hover {
+            background-color: rgb(87, 41, 59);
+        }
+
+        div {
+            margin: 20px auto;
+            width: 400px;
+            border:1px solid rgb(87, 41, 59);
+        }
+
+        p {
+            font-style: italic;
+            font-size: 18px;
+            color:rgb(165, 15, 73);
+            font-family: monospace;
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <h1>Mimimi Translator</h1>
+    <form>
+        <textarea placeholder="Escribe aquí tu texto a mimimizar" name="texto" id="texto" cols="30" rows="10"></textarea> <br>
+        <input id="submit" type="submit" value="Mimimiza">
+    </form>
+    <div>
+        <h3>Traducción:</h3>
+    <p id="traduccion"></p>
+    </div>  
+    <script type="text/javascript">
+    'use strict';
+
+    document.querySelector('form').onsubmit = () => {
+        let texto = document.querySelector('#texto').value;
+        let mimi = texto.replace(/[aeiou]/g, 'i');
+
+        document.querySelector('#traduccion').innerHTML = ` "${mimi}"`;
+        
+
+        return false;
+        
+    }
+        
+    
+    </script>
+
+</body>
+</html>

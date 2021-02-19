@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bisiestos</title>
+    <style>
+        body {
+            background-color: rgb(165, 150, 179);
+            text-align: center;
+            font-family: monospace;
+            font-size: 18px;
+            color: rgb(71, 35, 104);
+        }
+
+        div {
+            padding: 20px;
+            font-weight: 600;
+        }
+
+        input {
+            background-color: rgba(206, 180, 230, 0.644);
+            border: none;
+            outline: none;
+            width: 35px;
+            padding: 5px;
+            border-radius: 2px;
+            text-align: center;
+            color:rgb(71, 35, 104);
+            font-family: monospace;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <h1>Años Bisiestos</h1>
+
+    <form>
+        <label for="año">¿En qué año estás?</label>
+        <input type="text" name="año" id="año">
+
+    </form>
+
+    <div>
+        <p id="resultado"></p>
+    </div>
+
+    <script type="text/javascript">
+    'use strict';
+
+    document.querySelector('form').onsubmit = () => {
+        let añoActual = document.querySelector('#año').value;
+
+        if (añoActual % 4 === 0) {
+            document.querySelector('#resultado').innerHTML = `Ya estás en año bisiesto!`;
+            return false;
+        } else {
+            while (añoActual % 4 !== 0) {
+                añoActual++;
+                if (añoActual % 4 === 0) {
+                    document.querySelector('#resultado').innerHTML = `El próximo año bisiesto será el ${añoActual}.`;
+                    return false;
+                }
+            }
+        }
+    }
+        
+
+
+
+    </script>
+</body>
+</html>

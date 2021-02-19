@@ -14,6 +14,7 @@ document.querySelector('form').onsubmit = () => {
 
     document.querySelector('body').append(longitud);
 
+
     const botonNext = document.createElement('button');
     botonNext.id = "next";
     botonNext.innerHTML = "Ya lo sabía";

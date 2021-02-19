@@ -14,3 +14,4 @@ if (!localStorage.getItem('counter')) {
             document.querySelector('button').onclick = count;
 
         });
+        

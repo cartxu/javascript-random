@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             respuestaEdad.innerHTML = `Con ${edadPerruna} años, la edad de tu perrete es de ${edadHumana} añazos humanos`;
             document.querySelector('body').append(respuestaEdad);
 
+            
         } else if (edadPerruna > 2 && 1 !== 0) {
 
             let respuestaEdad = document.querySelector('#respuesta');

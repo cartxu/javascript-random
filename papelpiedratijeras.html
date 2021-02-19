@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Piedra Papel Tijeras</title>
+    <style>
+        body {
+            background-color: rgb(211, 190, 7);
+            font-size: 40px;
+            text-align: center;
+        }
+        button, button:focus {
+            padding: 20px 40px;
+            font-size: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin: 30px;
+            outline: none;
+            background-color:rgb(243, 234, 155);
+            border:3px solid rgb(126, 116, 28);
+            color:rgb(126, 116, 28);
+            font-family: monospace;
+            border-radius: 20px;
+            transition: all 0.3s;
+
+        }
+        button:hover {
+            cursor: pointer;
+            background-color:rgb(206, 199, 148);
+        }
+    </style>
+  </head>
+  <body>
+    <button class="js-emoji">Juega!</button>
+    <p class="js-result"></p>
+    <script type="text/javascript">
+        function getEmoji() {
+        fetch("https://api.rand.fun/games/rockpaperscissors")
+            .then(response => response.json())
+            .then(data => {
+            document.querySelector('.js-result').innerHTML = data.result
+        });
+}
+document.querySelector('.js-emoji').addEventListener("click", getEmoji);
+    
+    </script>
+  </body>
+</html>

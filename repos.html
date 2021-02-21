@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            margin-top: 30px;
+            margin-bottom: 0;
+            background-color: #E5E5F7;
+            opacity: 1;
+            background-image:  radial-gradient(#42d592 1px, transparent 1px), radial-gradient(#42d592 1px, #E5E5F7 1px);
+            background-size: 40px 40px;
+            background-position: 0 0,20px 20px;
+            font-weight: 600;
+            color: #17aa85;
+            
+        }
+
+        img {
+            width: 150px;
+            border-radius: 50%;
+        }
+
+        button {
+            background: linear-gradient(90deg, rgb(82, 204, 163) 0%, rgb(18, 236, 189) 35%, rgb(28, 199, 156) 100%);
+            padding: 10px 20px;
+            border: none;
+            outline: none;
+            margin: 20px;
+            border-radius: 3px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 20px;
+            color: rgba(62, 93, 104, 0.664);
+            box-shadow: 5px 5px 0px 0px rgba(82, 128, 124, 0.75);
+            transition: all 1s;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, rgb(57, 233, 174) 0%, rgb(99, 243, 188) 35%, rgb(46, 219, 182) 100%);
+            box-shadow: -5px -5px 0px 0px rgba(82, 128, 124, 0.75);
+        }
+
+        input {
+            border: none;
+            outline: none;
+            border-bottom: 1px solid rgb(32, 129, 136);
+            background: transparent;
+            text-align: center;
+            width: 130px;
+        }
+
+        .inputs {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <p>Type username from Github to get their repositories and avatar ;)</p>
+
+    <img src="" alt="">
+    <ul></ul>
+    <div class="inputs">
+    <input type="text" id="search" placeholder="Type Username"> 
+
+    <button id="show">Show</button>
+
+
+    <script>
+        function getRepos () {
+        const search = document.querySelector('#search').value;
+        fetch(`https://api.github.com/users/${search}`)
+        .then(userdata => userdata.json())
+        .then(userdata => {
+        const foto = userdata.avatar_url;
+        document.querySelector('img').src = foto;
+        return fetch(`https://api.github.com/users/${search}/repos`)
+        })
+            .then(response => response.json())
+            .then(data => {
+            const ul = document.querySelector('ul');
+            const repos = data;
+            let ulContent = '';
+
+            for (const repo of repos) {
+                const reposContent = `<li>${repo.name}</li>`;
+                ulContent += reposContent;
+            }
+            ul.innerHTML = ulContent;
+            document.querySelector('input').style.display = "none";
+            document.querySelector('button').style.display = "none";
+            document.querySelector('p').style.display = "none";
+            const back = document.createElement('button');
+            back.innerHTML = "Back";
+            back.addEventListener('click', location.reload());// NO FUNCIONA REFRESCAR AL HACER CLICK
+            document.querySelector('body').append(back);
+            
+            
+            });
+        }
+        const btn = document.querySelector('#show');
+        btn.addEventListener('click', getRepos);
+
+    </script>
+</body>
+</html>

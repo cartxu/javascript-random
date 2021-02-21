@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Ejercicio</title>
+  </head>
+  <body>
+    <button class="js-btn">Breeds</button>
+    <img src="" alt="">
+
+
+    <script>
+        function getBreedsImage () {
+        fetch('https://dog.ceo/api/breeds/list')
+            .then(breedsResponse => breedsResponse.json())
+            .then(breedsData => {
+            const breeds = breedsData.message;
+            return fetch('https://dog.ceo/api/breed/' + breeds[0] + '/images/random');
+            })
+            .then(imageResponse => imageResponse.json())
+            .then(imageData => {
+            const img = document.querySelector('img');
+            img.src = imageData.message;
+            img.alt = 'Un perro';
+            });
+        }
+        const btn = document.querySelector('.js-btn');
+        btn.addEventListener('click', getBreedsImage);
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Ghibli Films</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <style>
+
+        body {
+            background-color: #E5E5F7;
+            opacity: 1;
+            background-image:  radial-gradient(#cf45f7 1px, transparent 1px), radial-gradient(#cf45f7 1px, #E5E5F7 1px);
+            background-size: 40px 40px;
+            background-position: 0 0,20px 20px;
+            color: #7b0c85;
+            text-align: center;
+        }
+
+        .hl {
+            background: linear-gradient(180deg,rgba(255,255,255,0) 50%, rgba(209, 72, 186, 0.4) 50%);
+        }
+
+        .title {
+            
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            display: inline-block;
+        }
+
+        .films {
+            list-style: none;
+            margin: 20px auto;
+            border-radius: 5px;
+            color:rgb(54, 7, 46);
+            font-weight: 600;
+            padding: 30px;
+            width: 40vw;
+            background-color: rgba(209, 72, 186, 0.4);
+        }
+
+        li {
+            padding: 10px;
+            text-transform: capitalize;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="title">
+        <h1 class="display-2 hl">Studio Ghibli</h1>
+    </div>
+
+    <div class="container">
+        <button type="button" class="btn btn-dark">Show Films</button>
+        <ul>
+
+        </ul> 
+
+    </div>
+    <script type=text/javascript>
+
+        function getFilms(){
+            fetch('https://ghibliapi.herokuapp.com/films')
+            .then(filmsResponse => filmsResponse.json())
+            .then(filmsData => {
+                for(let i = 0; i <= filmsData.length; i++) {
+                    const list = document.createElement('li');
+                    list.innerHTML = filmsData[i].title;
+                    document.querySelector('ul').append(list);
+                    document.querySelector('ul').classList.add('films');
+                }
+                
+            })
+        }
+
+
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', getFilms);
+
+    </script>
+</body>
+</html>

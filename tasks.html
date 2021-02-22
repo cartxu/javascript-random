@@ -144,14 +144,28 @@
                 li.innerHTML = task;
 
                 document.querySelector('#tasks').append(li);
-                
                 document.querySelector('#task').value = '';
-
-
 
                 //stop form from submitting
                 return false;
                 }
+            
+            // Función para pasar las tareas a DONE, pendiente.
+            function taskDone() {
+                const done = document.querySelector('#toDo').value;
+                const liDone = document.createElement('li');
+
+                liDone.innerHTML = done;
+
+                document.querySelector('#done').append(liDone);
+            }
+
+            const toDo = document.querySelector('#toDo');
+
+            if(toDo) {
+                toDo.addEventListener('click', taskDone);
+            }
+            
             
           
                 

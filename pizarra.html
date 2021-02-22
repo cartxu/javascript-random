@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizarra</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&display=swap" rel="stylesheet">
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Dawning of a New Day', cursive;
+            font-size: 20px;
+            width: 100vw;
+            height: auto;
+        }
+        
+        .pizarra {
+            margin: 20px auto;
+            width: 80vw;
+            border: 20px solid rgb(53, 86, 129);
+            background-color: rgb(34, 36, 36);
+            padding: 30px;
+            color: #fff;
+            font-size: 22px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="pizarra">
+
+    </div>
+
+
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function(){
+            for(let i=1; i<=100; i++) {
+                const frase = document.createElement('p');
+                const combo = document.createElement('select');
+                frase.id = 'frase';
+                combo.id = i;
+                combo.innerHTML = ` <option value="white" id="blanco" selected>Blanco</option>
+                                    <option value="red" id="rojo">Rojo</option>
+                                    <option value="blue" id"azul">Azul</option>
+                                    <option value="green" id="verde">Verde</option>`;
+                frase.innerHTML = `${i}. He aprendido a utilizar bucles`;
+                document.querySelector('.pizarra').append(frase, combo);
+
+
+            }
+
+            //función que agrega escucha al cambio del select.
+         
+            const selectColors = document.querySelectorAll('select');
+
+            selectColors.forEach(combo => {
+                combo.addEventListener('change', (event) => {
+                    const frase = document.querySelectorAll('#frase')[combo.id-1];
+                    frase.style.color = `${event.currentTarget.value}`;
+            });
+            });
+        
+
+
+
+        });
+    </script>
+</body>
+</html>

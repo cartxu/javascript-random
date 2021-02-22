@@ -81,7 +81,38 @@
                 pares.innerHTML = `Enhorabuena ${user.name}, tu pin es par y puedes acceder.`;
                 document.querySelector('#pares').append(pares);
             })
+
+            //encontrar al usuario con pin 5232 con el método find
+
+            const userPin = users.find(user => user.pin === 5232);
+            console.log(userPin.name);
+
+            //ordenar numeros cn sort
+
+            const times = [56, 9, 45, 28, 35];
+
+            times.sort((a, b) => a - b);
+            console.log(times);
+
+            //ordenar alfabéticamente
+
+            users.sort((a,b) => {
+                if(a.name > b.name) {
+                    return 1;
+                }
+                if(a.name < b.name) {
+                    return -1
+                }
+                return 0;
+            });
+            console.log(users);
+
+            // ordenar usuarios por número de pin
+
+            users.sort((a,b) => a.pin - b.pin);
+            console.log(users);
     
+
         });
     
     </script>

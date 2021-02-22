@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Method</title>
+</head>
+<body>
+
+    <p> </p>
+
+    <script type=text/javascript>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ciudades = ['torrevieja', 'cadiz', 'cordoba', 'sevilla', 'madrid', 'barcelona'];
+            const capitalCiudades = ciudades.map(ciudades => ciudades.toUpperCase());
+
+            const marks = [5, 7, 8, 9, 10];
+            const inflatedMarks = marks.map(marks => marks + 1);
+
+            document.querySelector('p').innerHTML = inflatedMarks;
+
+        
+
+
+        });
+    
+    </script>
+</body>
+</html>

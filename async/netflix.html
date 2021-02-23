@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Sigues ahí?</title>
+    <style>
+        .tv {
+            width: 60vw;
+            height: 40vh;
+            margin: 20px auto;
+            background-color: rgb(51, 49, 49);
+            border: 10px solid grey;
+            border-radius: 5px;
+            text-align: center;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            
+
+        }
+
+        .time {
+            font-size: 20px;
+            color: white;
+        }
+
+        .msg {
+            color: red;
+            font-size: 30px;
+            
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="tv">
+        <p class="time">0</p>
+        <p class="msg">
+            ¿Sigues ahí? <br>
+            <button class="sigo">Seguir viendo</button>
+        </p>
+        
+    </div>
+    
+
+    <script type=text/javascript>
+    
+        document.addEventListener('DOMContentLoaded', function () {
+            let counter = 0;
+            let temp;
+            
+
+           const netflixWatching = () => {
+                counter++;
+                const time = document.querySelector('.time');
+                const sigo = document.querySelector('.sigo');
+                const msg = document.querySelector('.msg');
+                msg.style.opacity = 0;
+                time.innerHTML = counter;
+
+                if(counter===5){
+                   msg.style.opacity = 1;
+                   clearInterval(temp);
+                   counter = 0;
+                   setInterval(netflixWatching, 1000);
+                   return false;
+                } 
+           };
+
+           temp = setInterval(netflixWatching, 1000);
+
+
+
+        
+          
+
+           
+        
+        });
+    
+    </script>
+</body>
+</html>

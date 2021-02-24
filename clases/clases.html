@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica con Clases en Javascript</title>
+</head>
+<body>
+    
+
+    <script type="text/javascript">
+
+        
+        class Polygon {
+            constructor(numberOfSides, base, height) {
+                this.numberOfSides = numberOfSides;
+                this.base = base;
+                this.height = height;
+            }
+
+            perimeter(base, numberOfSides) {
+                return this.base * this.numberOfSides;
+                
+            }
+
+            area(base, height) {
+                return this.base * this.height;
+                
+            }
+        }
+
+        class Triangle extends Polygon {
+            constructor(base,height){
+                super(3, base, height);
+
+            }
+
+            area() {
+               return super.area()/2;
+            }
+
+
+        }
+
+        class Square extends Polygon {
+            constructor(base, height) {
+            super(4, base, height);
+            
+            
+            
+            }
+        }
+
+        const triangle = new Triangle(10,7);
+        const square = new Square(4, 10, 10);
+
+        console.log(triangle.area());
+        console.log(square.perimeter());
+        console.log(square.area());
+        
+        
+
+    </script>
+</body>
+</html>

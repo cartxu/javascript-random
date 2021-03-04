@@ -4,17 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600&display=swap" rel="stylesheet">
     <title>¿Sigues ahí?</title>
     <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
         .tv {
-            width: 60vw;
-            height: 40vh;
+            width: 400px;
+            height: 250px;
             margin: 20px auto;
             background-color: rgb(51, 49, 49);
-            border: 10px solid grey;
+            border: 15px solid grey;
+            border-bottom: 30px solid grey;
             border-radius: 5px;
             text-align: center;
-            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
             flex-direction: column;
             justify-content: space-around;
@@ -23,7 +29,7 @@
         }
 
         .time {
-            font-size: 20px;
+            font-size: 40px;
             color: white;
         }
 
@@ -31,6 +37,39 @@
             color: red;
             font-size: 30px;
             
+        }
+
+        .sigo{
+            border: none;
+            background-color: red;
+            color: #fff;
+            border-radius: 10px;
+            margin: 5px;
+            padding: 10px 20px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .sigo:hover {
+            cursor:pointer;
+            background-color: rgb(182, 33, 33);
+        }
+
+        .fas {
+            color: rgba(255, 255, 255, 0.788);
+            margin-bottom: -5px;
+        }
+
+        .fas:hover {
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .turn-on {
+            color: rgb(41, 117, 128);
+            font-weight: 600;
+            text-align: center;
+            font-size: 22px;
         }
     </style>
 
@@ -43,46 +82,47 @@
         <p class="msg">
             ¿Sigues ahí? <br>
             <button class="sigo">Seguir viendo</button>
+
         </p>
-        
+        <i class="fas fa-power-off"></i>
     </div>
-    
+    <p class="turn-on" >
+        Turn the TV on!
+    </p>
 
     <script type=text/javascript>
     
-        document.addEventListener('DOMContentLoaded', function () {
-            let counter = 0;
-            let temp;
-            
+     
+        let counter = 0;
+        const on = document.querySelector('.fas');
+        const msgOn = document.querySelector('.turn-on');
+        const time = document.querySelector('.time');
+        const sigo = document.querySelector('.sigo');
+        const msg = document.querySelector('.msg');
+        let temp; 
+        msg.style.opacity = 0;
 
-           const netflixWatching = () => {
-                counter++;
-                const time = document.querySelector('.time');
-                const sigo = document.querySelector('.sigo');
-                const msg = document.querySelector('.msg');
-                msg.style.opacity = 0;
-                time.innerHTML = counter;
+        on.addEventListener('click', () =>{
+           temp = setInterval(netflixWatching, 1000); //iniciamos el contador para invocar la función cuando el usuario enciende la tv
+           msgOn.style.display = 'none';
+        })
 
-                if(counter===5){
-                   msg.style.opacity = 1;
-                   clearInterval(temp);
-                   counter = 0;
-                   setInterval(netflixWatching, 1000);
-                   return false;
-                } 
-           };
+        function netflixWatching() { 
+            time.innerHTML = counter;
+            counter++;
+            if(counter>5){ //cuando counter llega a 5, counter vuelve a 0 e invocamos clearinterval para parar función.
+                counter = 0;
+                clearInterval(temp);
+                msg.style.opacity = 1;
+            }
+        }
 
-           temp = setInterval(netflixWatching, 1000);
+        sigo.addEventListener('click', () => { //cuando el usuario hace click en seguir viendo todo vuelve a empezar ;)
+            msg.style.opacity = 0;
+            temp = setInterval(netflixWatching,1000);
+        })
 
 
-
-        
-          
-
-           
-        
-        });
-    
     </script>
 </body>
 </html>

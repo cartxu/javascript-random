@@ -2,6 +2,7 @@
 
 Aquí publicaré mis prácticas con Javascript... desde lo más básico que he hecho con él (los diseños son de lo más básico, ya que aquí lo principal era prácticar JS ^^):
 
+* <a href ="https://cartxu.github.io/javascript-random/netflix.html">TV con temporizador a lo Netflix</a>
 * <a href="https://cartxu.github.io/javascript-random/mimimi.html">MIMIMIzador de texto</a>
 * <a href="https://cartxu.github.io/javascript-random/bisiesto.html">Calculadora Bisiestos</a>
 * <a href="https://cartxu.github.io/javascript-random/edadperro.html">Calculadora edad perruna</a>

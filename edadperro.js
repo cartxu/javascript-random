@@ -12,8 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             let respuestaEdad = document.querySelector('#respuesta');
             let edadHumana = 15;
-            respuestaEdad.innerHTML = `Con ${edadPerruna} año, la edad de tu perrete es de ${edadHumana} añazos humanos ¡feliz pubertad! <br>
-            <img src="http://www.dogarden.es/wp-content/uploads/2020/02/perro-travieso-2.jpg">`;
+            respuestaEdad.innerHTML = `Con ${edadPerruna} año, la edad de tu perrete es de ${edadHumana} añazos humanos ¡feliz pubertad!`;
             document.querySelector('body').append(respuestaEdad);
 
         } else if (edadPerruna === 2) {
@@ -33,8 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
 
             let respuestaEdad = document.querySelector('#respuesta');
-            respuestaEdad.innerHTML = `Si tu perro tiene 0 añicos, tranqui, sigue siendo un bebé.
-            <img src="https://i.pinimg.com/originals/d7/a8/6e/d7a86e23a3c41f0423f8783c30c42657.jpg">`;
+            respuestaEdad.innerHTML = `Si tu perro tiene 0 añicos, tranqui, sigue siendo un bebé.`;
             document.querySelector('body').append(respuestaEdad);
         }
 

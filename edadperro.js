@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let respuestaEdad = document.querySelector('#respuesta');
             let edadHumana = 15;
             respuestaEdad.innerHTML = `Con ${edadPerruna} año, la edad de tu perrete es de ${edadHumana} añazos humanos ¡feliz pubertad! <br>
-            <img src="https://i1.wp.com/revista.weepec.com/wp-content/uploads/2017/01/perro-travieso.jpg">`;
+            <img src="http://www.dogarden.es/wp-content/uploads/2020/02/perro-travieso-2.jpg">`;
             document.querySelector('body').append(respuestaEdad);
 
         } else if (edadPerruna === 2) {

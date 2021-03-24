@@ -53,8 +53,11 @@
 
     document.querySelector('form').onsubmit = () => {
         let añoActual = document.querySelector('#año').value;
-
-        if (añoActual % 4 === 0) {
+        if (isNaN(añoActual)){
+            document.querySelector('#resultado').innerHTML = `Solo puedes escribir números!`;
+            return false;
+        }else{
+           if (añoActual % 4 === 0) {
             document.querySelector('#resultado').innerHTML = `Ya estás en año bisiesto!`;
             return false;
         } else {
@@ -64,7 +67,8 @@
                     document.querySelector('#resultado').innerHTML = `El próximo año bisiesto será el ${añoActual}.`;
                     return false;
                 }
-            }
+            } 
+        }
         }
     }
         
